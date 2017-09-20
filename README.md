@@ -10,8 +10,8 @@
 - 在ios下，呼出键盘后，页面元素的位置会调整，但绝对定位元素中的输入框的焦点却还在原来的位置。可以在呼出键盘后，手动使绝对定位元素中的input获得一次焦点来解决（focus方法）
 - ios下，不会执行keyup事件回调函数中的异步请求
 - 安卓下用vh设置高度，呼出键盘时内容会被压缩，同样的，可以设置页面的高度为document.getClientHeight来解决
-- 在vue-cli的webpack模板中使用postcss，无论如何配置，display:flex的前缀都添加不对，导致在ios8下显示异常，但单独使用postcss处理工程的css或者在postcss的网页工具中处理，却能正确添加前缀。
-  这里暂时强行解决，在webpack打包完成后，再用postcss为打包后的css添加前缀。在vue-cli工程中的处理为，在build/build.js中，在webpack打包完成的回调函数中添加如下代码：
+- 在vue-cli的webpack模板中使用postcss，无论如何配置，display:flex的前缀都添加不对，导致在ios8下显示异常，但单独使用postcss处理工程中的css或者在postcss的网页工具中处理，却能正确添加前缀。猜测是因为vue 2.3之后会自动为display:flex这样的属性添加前缀，但根据文档，vue只是针对v-bind:style添加到元素上的样式做处理，详见多[重值](https://cn.vuejs.org/v2/guide/class-and-style.html#多重值)<br>
+这里暂时强行解决，在webpack打包完成后，再用postcss为打包后的css添加前缀。在vue-cli工程中的处理为，在build/build.js中，在webpack打包完成的回调函数中添加如下代码：
   ```javascript
         var fs = require("fs");
         var postcss = require('postcss');
