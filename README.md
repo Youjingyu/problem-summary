@@ -47,3 +47,13 @@
         });  
   ```
 - ios下上传图片，本地预览是正确显示的，上传到服务器后，页面再把图片请求回来显示，可能因为图片orientation值的不同导致图片是倒置的。解决代码[将图片旋转到正确的角度](https://github.com/Youjingyu/Code-Collection/blob/master/image-processing/resetImgOrientation.js)
+- outline不能单独设置某一边，可以用css3的box-shadow模拟，也可以用下面代码hack：
+```css
+    .element:before {
+           content: "\a0";
+           display: block;
+           padding: 2px 0;
+           line-height: 1px;
+           border-top: 1px dashed #000; 
+         }
+```
