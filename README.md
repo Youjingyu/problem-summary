@@ -57,3 +57,4 @@
            border-top: 1px dashed #000; 
          }
 ```
+- 只有a、button、input类标签才有blur、focus时间，希望其他元素有这两个事件，需要在元素上添加tabindex（有兼容性问题），其值在0到32767之间，数字代表被tab键遍历到的顺序，0代表不会被表遍历到。
