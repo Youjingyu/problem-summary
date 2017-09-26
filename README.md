@@ -58,3 +58,5 @@
          }
 ```
 - 只有a、button、input类标签才有blur、focus时间，希望其他元素有这两个事件，需要在元素上添加tabindex（有兼容性问题），其值在0到32767之间，数字代表被tab键遍历到的顺序，0代表不会被表遍历到。
+- 输入框opacity为0时，ie仍然可以可见光标，设置输入框的color: transparent，无效，设置text-indent: -999em，能够达到效果。
+- chrome和firefox支持outline: #ccc auto 1px 的写法，但在ie和微信浏览器下无效，必须制定外边框线类型，如outline: #ccc solid 1px
