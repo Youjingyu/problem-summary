@@ -61,3 +61,7 @@
 - 输入框opacity为0时，ie仍然可以可见光标，设置输入框的color: transparent，无效，设置text-indent: -999em，能够达到效果。
 - chrome和firefox支持outline: #ccc auto 1px 的写法，但在ie和微信浏览器下无效，必须制定外边框线类型，如outline: #ccc solid 1px
 - for in 会遍历原型链，Object.keys()与for in的区别是不会遍历原型链，两者都不可遍历不可枚举属性；Object.getOwnPropertyNames可以获取对象自身的可枚举和不可枚举属性。
+- video不能播放以链接返回的视频，如https://v.qq.com/iframe/player.html?vid=p0553hnmh8g&tiny=0&auto=0，可以使用flash播放，或者嵌入iframe：
+```html
+<iframe frameborder="0" width="640" height="498" src="https://v.qq.com/iframe/player.html?vid=p0553hnmh8g&tiny=0&auto=0" allowfullscreen></iframe>></iframe>
+```
