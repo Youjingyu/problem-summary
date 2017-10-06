@@ -65,3 +65,15 @@
 ```html
 <iframe frameborder="0" width="640" height="498" src="https://v.qq.com/iframe/player.html?vid=p0553hnmh8g&tiny=0&auto=0" allowfullscreen></iframe>></iframe>
 ```
+- 可以使用如下方式实现垂直居中：
+```css
+    .parent{
+        position: relative;
+    }
+    .child{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+    }
+```
