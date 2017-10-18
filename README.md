@@ -77,3 +77,4 @@
         margin: auto 0;
     }
 ```
+ element ui的Select组件，手动设置值时，数组类型必须和option的value的数据类型一致，否则会显示为设置的值而不是值对应的label
