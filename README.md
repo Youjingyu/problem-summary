@@ -79,3 +79,4 @@
 ```
 - element ui的Select组件，手动设置值时，数组类型必须和option的value的数据类型一致，否则会显示为设置的值而不是值对应的label
 - 使用display: table; display: table-cell;vertical-align: bottom;可以实现某个子元素高度增加，但所有子元素仍然基线对齐。
+- 使用rem和border-radius: 50%实现圆形，在小分辨率下会变成椭圆。可以在小分辨率下使用固定像素解决。
