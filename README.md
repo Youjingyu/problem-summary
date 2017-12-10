@@ -80,3 +80,43 @@
 - element ui的Select组件，手动设置值时，数组类型必须和option的value的数据类型一致，否则会显示为设置的值而不是值对应的label
 - 使用display: table; display: table-cell;vertical-align: bottom;可以实现某个子元素高度增加，但所有子元素仍然基线对齐。
 - 使用rem和border-radius: 50%实现圆形，在小分辨率下会变成椭圆。可以在小分辨率下使用固定像素解决。
+- 移动端webview很多都有导航栏（如微信和qq），设计整屏页面时，需要扣除导航高度（如qq内置浏览器，顶部占用150px，底部占用260px，750\*1334的设计稿最终为750*1074）；一种设计是，页面主体内容不要太高，剩余部分用纯色填充，或者用绝对定位元素填充，实现自适应。
+- 二维码要用img引入，背景图长按不能识别为二维码。
+- qq中设置分享链接预览信息，参考文档[手机QQ接口文档：setShareInfo](http://open.mobile.qq.com/api/mqq/index#api:setShareInfo)：
+    ```html
+    <title>QQ中链接的标题由此处获取</title>
+    <meta name="description" content="QQ中链接的描述由此处获取">
+    <!-- QQ默认获取的图片有可能出现缩放问题，效果不佳，可以通过如下方法进行设置 -->
+    <meta itemprop="image" content="http://*.*.com/static/images/share.png" />
+    ```
+    如果预览中没有正确显示预览图片，尝试将页面链接从somedomain/ 或者 somedomain/index，修改为 somedomain/index.html。
+- 微信中需要保证视区内只有一个二维码，否则只能识别出第一个二维码。
+- 微信中，使用meta缩放页面后，不能识别二维码:
+    ```html
+    <!--同一张二维码图片-->
+    <!--下面这张 opacity 为 0，隐藏起来，但是实际存在，并且宽为 100%，屏幕有多大就多大-->
+    < img style="right:0; top:0; height: auto;width: 100%;opacity: 0;position: absolute;" src="二维码图片地址">
+    <!--下面这张是呈现给用户看的-->
+    < img src="二维码图片地址" title="qrcode" alt="qrcode">
+    <!--PS: img 标签前面的空格记得去掉，这里加上空格是因为简书有 bug，针对 img 标签代码渲染会出错-->
+    ```
+- 使用meta标签缩放页面
+    ```javascript
+    <!-- 以下代码默认设计稿尺寸为 640 x 1134 -->
+    <meta id="viewport" content="width=device-width, user-scalable=yes,initial-scale=1" name="viewport" />
+    <script>
+        var detectBrowser = function(name) {
+            if(navigator.userAgent.toLowerCase().indexOf(name) > -1) {
+                return true;
+            } else {
+                return false;
+            }
+        };
+        var width = parseInt(window.screen.width);
+        var scale = width/640;  // 根据设计稿尺寸进行相应修改：640=>?
+        var userScalable = 'no';
+        if(detectBrowser("qq/")) userScalable = 'yes';
+        document.getElementById('viewport').setAttribute(
+                'content', 'target-densitydpi=device-dpi,width=640,user-scalable='+userScalable+',initial-scale=' + scale); // 这里也别忘了改：640=>?
+    </script>
+    ```
