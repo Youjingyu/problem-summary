@@ -120,3 +120,24 @@
                 'content', 'target-densitydpi=device-dpi,width=640,user-scalable='+userScalable+',initial-scale=' + scale); // 这里也别忘了改：640=>?
     </script>
     ```
+- vue+vux的项目中，如果使用了未定义的事件方法会报错
+```TypeError: Cannot read property '_withTask' of undefined```
+让人非常迷茫，代码如下：
+```vue
+<template>
+    <div class="report-content">
+        <div class="ger-loading" v-show="isError" @click="REPORT_REGET">加载失败，点击重试</div>
+    </div>
+</template>
+<script type="text/javascript">
+  import vuex from 'vuex';
+  const mapActions = vuex.mapActions;
+  export default {
+    methods:{
+      ...mapActions([
+        'RENDER_CHARTS'
+      ])
+    }
+  }
+</script>
+```
