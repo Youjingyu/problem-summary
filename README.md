@@ -141,3 +141,15 @@
   }
 </script>
 ```
+- es6中，如果用如下方式使用class，可能会报错```Class constructor Config$1 cannot be invoked without 'new'```
+```javascript
+import superReport from './superReport'
+let Report = ( supperclass ) => class extends supperclass {
+  constructor( options ) {
+    super(options)
+  }
+}
+new (Report(superReport))();
+```
+如果superReport来自node_modules，会报错，否则不会报错。  
+这是由es6 class的运行机制导致，可以修改babel的配置为```"presets": [ "es2015-node5" ]```解决
