@@ -152,4 +152,5 @@ let Report = ( supperclass ) => class extends supperclass {
 new (Report(superReport))();
 ```
 如果superReport来自node_modules，会报错，否则不会报错。  
-这是由es6 class的运行机制导致，可以修改babel的配置为```"presets": [ "es2015-node5" ]```解决
+这是由es6 class的运行机制导致，可以修改babel的配置为```"presets": [ "es2015-node5" ]```解决  
+参考https://github.com/babel/babel/issues/4269
