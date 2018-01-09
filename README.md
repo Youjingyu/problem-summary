@@ -154,3 +154,6 @@ new (Report(superReport))();
 如果superReport来自node_modules，会报错，否则不会报错。  
 这是由es6 class的运行机制导致，可以修改babel的配置为```"presets": [ "es2015-node5" ]```解决  
 参考https://github.com/babel/babel/issues/4269
+- vmware安装centos，选择配置系统iso后，开机依然system not found：在设置 -> CD/DVD -> 开启启动时连接。
+- vmware安装centos过程中，f12为确定并到下一屏，相当于next
+- 安装为了在虚拟机与主机间复制粘贴，需要安装vmware tools，安装方法http://blog.csdn.net/programmer_sir/article/details/46626409
