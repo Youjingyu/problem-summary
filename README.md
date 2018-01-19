@@ -181,3 +181,8 @@ make prefix=/usr/local/git install
 echo "export PATH=$PATH:/usr/local/git/bin" >> /etc/profile
 source /etc/profile
 ```
+- 安装node-rdkafka报错
+```bash
+unrecognized command line option -std=c++11
+//  升级gcc即可：https://www.quyu.net/info/628.html
+```
