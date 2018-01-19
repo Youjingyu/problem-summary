@@ -186,3 +186,9 @@ source /etc/profile
 unrecognized command line option -std=c++11
 //  升级gcc即可：https://www.quyu.net/info/628.html
 ```
+- 调用node-rdkafka时报错
+```bash
+libstdc++.so.6 version glibcxx_3.4.21' not found
+// 因为升级gcc时，生成的动态库没有替换老版本gcc的动态库。
+// 重建默认库的软连接即可：https://itbilu.com/linux/management/NymXRUieg.html
+```
