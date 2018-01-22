@@ -192,3 +192,16 @@ libstdc++.so.6 version glibcxx_3.4.21' not found
 // 因为升级gcc时，生成的动态库没有替换老版本gcc的动态库。
 // 重建默认库的软连接即可：https://itbilu.com/linux/management/NymXRUieg.html
 ```
+- nodejs使用exec执行系统命令，参数中的双引号会被去掉
+```javascript
+exec('elasticdump data={"test": "www"}');
+```
+在命令行中执行的实际为
+```bash
+elasticdump data={test: www}
+```
+解决方式
+```javascript
+// 如果在某环境中依然报错，使用shelljs执行shelljs.exec
+exec('elasticdump data={"test": "www"}'.replace(/"/g, '\\"'));
+```
