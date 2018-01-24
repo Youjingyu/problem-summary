@@ -202,6 +202,10 @@ elasticdump data={test: www}
 ```
 解决方式
 ```javascript
-// 如果在某环境中依然报错，使用shelljs执行shelljs.exec
+// windows
 exec('elasticdump data={"test": "www"}'.replace(/"/g, '\\"'));
+// linux
+exec('elasticdump data=\'{"test": "www"}\'');
+
+// 如果在某环境中依然报错，使用shelljs执行shelljs.exec
 ```
