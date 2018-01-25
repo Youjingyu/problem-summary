@@ -182,9 +182,15 @@ echo "export PATH=$PATH:/usr/local/git/bin" >> /etc/profile
 source /etc/profile
 ```
 - 安装node-rdkafka报错
-```bash
+```bash 
 unrecognized command line option -std=c++11
 //  升级gcc即可：https://www.quyu.net/info/628.html
+// 升级过程中继续报错 
+// make[1]: *** [all-stage1-gcc] Error 2
+// make[1]: *** [stage1-bubble] Error 2
+// 首先保证有10G硬盘、1G内存、1G Swap分区，swap分许可以开启临时的http://smilejay.com/2012/09/new-or-add-swap/
+// 如果需要swap分区持久生效，需要配置swap分区的开机启动/dev/sdb2 swap swap defaults 0 0
+// 保证上述要求仍然报相同的错，可以尝试安装yum install gcc-c++ 、libgcc.i686等
 ```
 - 调用node-rdkafka时报错
 ```bash
