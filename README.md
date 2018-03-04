@@ -229,3 +229,10 @@ exec('elasticdump data=\'{"test": "www"}\'');
 - 页面onload事件触发时机较晚，甚至不触发
 对于有延迟加载资源的页面、或者页面内容较多（如大量图片）、或者页面是长列表型，导致浏览器一直在加载资源，从而阻塞onload事件；如果，用户在页面加载过程中，将浏览器后台运行，这时浏览器可能会挂起，也不会触发onload事件。从而，放到onload回调里的数据收集函数不被触发。而且，经观察，onload在新浪网这种图片多、列表长的页面来说，onload不触发的概率比较大。  
 可以使用settimeout兜底来解决，比如3s后直接执行onload回调函数，不再等待onload。
+- npm adduser，用户名、密码正确，仍旧提示错误。可能是使用了非官方npm源（如淘宝的源），需要切换回官方源：
+```bash
+// 查看当前源
+npm config ls
+// 切换回官方源
+npm config set registry https://registry.npmjs.org/
+```
