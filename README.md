@@ -236,3 +236,11 @@ npm config ls
 // 切换回官方源
 npm config set registry https://registry.npmjs.org/
 ```
+- git clone报错
+```bash
+fatal: unable to access 'https://github.com/houshanren/hangzhou_house_knowledge.git/': SSL connect error
+```
+升级ssl版本解决
+```bash
+yum update -y nss curl libcurl
+```
