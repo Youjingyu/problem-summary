@@ -244,3 +244,6 @@ fatal: unable to access 'https://github.com/houshanren/hangzhou_house_knowledge.
 ```bash
 yum update -y nss curl libcurl
 ```
+- 用fiddler抓包，手机证书无法安装
+IOS：设置 —> 通用 —> 关于本机 —> 受信任证书存储区，找到需要安装的证书，安装即可。
+ANDROID：设置 —> 安全 —> 从手机存储安装，找到需要安装的证书，安装即可。
