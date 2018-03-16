@@ -247,3 +247,10 @@ yum update -y nss curl libcurl
 - 用fiddler抓包，手机证书无法安装
 IOS：设置 —> 通用 —> 关于本机 —> 受信任证书存储区，找到需要安装的证书，安装即可。
 ANDROID：设置 —> 安全 —> 从手机存储安装，找到需要安装的证书，安装即可。
+- cnpm link只能link用cnpm install的工程，如果工程师yarn安装的，用cnpm link 报错：
+```bash
+npm WARN checkPermissions Missing write access to 
+```
+- cnpm link的时候回安装工程，不要先安装再link，安装后会导致link文件过多，报错Maximum call stack size exceeded
+- windows下修改问价权限
+http://blog.csdn.net/taochangchang/article/details/12856041
