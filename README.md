@@ -254,3 +254,9 @@ npm WARN checkPermissions Missing write access to
 - cnpm link的时候回安装工程，不要先安装再link，安装后会导致link文件过多，报错Maximum call stack size exceeded
 - windows下修改问价权限
 http://blog.csdn.net/taochangchang/article/details/12856041
+- 使用service start kibana，报错chown: invalid user: `kibana:kibana'
+```bash
+adduser kibana
+chown -R kibana:kibana /opt/kibana/optimize
+service kibana start
+```
