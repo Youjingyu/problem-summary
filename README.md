@@ -260,3 +260,10 @@ adduser kibana
 chown -R kibana:kibana /opt/kibana/optimize
 service kibana start
 ```
+- gitignore修改后不生效
+```bash
+git rm --cached filename
+# 或者
+git rm -r --cached directory
+```
+删除后commit删除操作就行了
