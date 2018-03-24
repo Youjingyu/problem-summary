@@ -267,3 +267,10 @@ git rm --cached filename
 git rm -r --cached directory
 ```
 删除后commit删除操作就行了
+- elasticsearch aggregation查询报错：   
+Scripts of type [inline], operation [aggs] and lang [groovy] are disabled   
+因为没有在/etc/elasticsearch/elasticsearch.yml中配置  
+script.inline: true
+script.indexed: true
+如果配置了还报错，可能是节点集群中的子机器没有配置  
+配置子节点后，重启，需要注意，子节点重启后母节点也要重启才能连接到子节点
