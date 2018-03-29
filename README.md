@@ -274,3 +274,10 @@ script.inline: true
 script.indexed: true
 如果配置了还报错，可能是节点集群中的子机器没有配置  
 配置子节点后，重启，需要注意，子节点重启后母节点也要重启才能连接到子节点
+- webpack编译软连接的文件报错：找不到模块
+```javascript
+resolve: {
+    symlinks: false
+  }
+```
+ln -s执行软连接时，需要在源文件的目录执行该命令，不然在目标目录cd找不到文件夹。如果仍报错：Too many levels of symbolic links，源文件和目标文件都需要使用绝对路径。
