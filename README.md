@@ -281,3 +281,4 @@ resolve: {
   }
 ```
 ln -s执行软连接时，需要在源文件的目录执行该命令，不然在目标目录cd找不到文件夹。如果仍报错：Too many levels of symbolic links，源文件和目标文件都需要使用绝对路径。
+- vscode会优先使用本地安装的eslint，如果使用的本地eslint，eslint只会在本地node_modules里查找eslint-plugin，全局安装的eslint-plugin不起作用
